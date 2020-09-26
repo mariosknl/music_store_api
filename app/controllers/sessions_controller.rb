@@ -12,7 +12,17 @@ class SessionsController < Devise::SessionsController
     end
   end
 
-  def logged?; end
+  def logged?
+    render json: { message: 'Forbitten Route' } unless cookies[:token]
+    return unless cookies[:token]
 
-  def delete; end
+    token = JWT.decode(cookies[:token], ENV['SECRET_KEY'])
+    @user = User.find(token[0]['user_id']) || nil
+    render 'sessions/logged?.json.jbuilder'
+  end
+
+  def delete
+    cookies.delete :token
+    render json: { message: 'Log Out Success' }
+  end
 end

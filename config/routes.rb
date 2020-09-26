@@ -29,4 +29,8 @@ Rails.application.routes.draw do
                sessions: 'sessions',
                registrations: 'registrations'
              }
+  devise_scope :user do
+    delete '/signout', to: 'sessions#delete'
+    get '/loggeduser', to: 'sessions#logged?'
+  end
 end
