@@ -1,0 +1,2 @@
+class Drumkit < ApplicationRecord
+end
