@@ -1,0 +1,2 @@
+class Snare < ApplicationRecord
+end
