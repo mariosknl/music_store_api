@@ -1,0 +1,2 @@
+class Cymbal < ApplicationRecord
+end
