@@ -23,7 +23,10 @@ Bundler.require(*Rails.groups)
 
 module MusicStoreApi
   class Application < Rails::Application
+    require 'middleware/secure_cookies'
     # Initialize configuration defaults for originally generated Rails version.
+    config.middleware.insert_after ActionDispatch::Static, Middleware::SecureCookies
+    config.middleware.use ActionDispatch::Cookies
     config.load_defaults 6.0
 
     # Settings in config/environments/* take precedence over those specified here.
