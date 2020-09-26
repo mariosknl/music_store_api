@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
   devise_for :users,
              path: '',
-             path_name: {
+             path_names: {
                sign_in: 'login',
                sign_out: 'logout',
                registration: 'signup'
