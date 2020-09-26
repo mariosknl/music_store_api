@@ -1,14 +1,15 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
-    if (params[:admin])
-      profile = Admin.create(admin_params)
-      @user = User.create(sign_up_params)
+    return unless params[:admin]
 
-      if @user
-        render 'registrations/signup.json.jbuilder'
-      else
-        render json: {message: @user.error.full_messages}
-      end
+    profile = Admin.create(admin_params)
+    @user = User.new(sign_up_params)
+    @user.profile = profile
+
+    if @user.save
+      render 'registrations/signup.json.jbuilder'
+    else
+      render json: { message: @user.error.full_messages }
     end
   end
 

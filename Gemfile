@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -26,6 +24,7 @@ gem 'devise'
 gem 'devise-jwt'
 gem 'figaro'
 gem 'jsonapi-rails'
+gem 'rubocop', '~>0.81.0'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
