@@ -1,1 +1,1 @@
-json.array! @guitars, :id, :name, :strings, :pickups, :image_url
+json.array! @guitars, :id, :name, :strings, :image_url
