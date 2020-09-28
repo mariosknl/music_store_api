@@ -26,7 +26,7 @@ module Api
       def show; end
 
       def index
-        @instruments = Instrument.all
+        @instruments = Instrument.all.order(:instrumentable_type)
         render 'instrument/index.json.jbuilder'
       end
 
