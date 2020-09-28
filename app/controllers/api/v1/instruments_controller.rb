@@ -64,7 +64,7 @@ module Api
       end
 
       def guitar_params
-        params[:instrument].permit(:name, :strings, :pickups, :image_url)
+        params[:instrument].permit(:name, :strings, :image_url)
       end
 
       def bass_params
