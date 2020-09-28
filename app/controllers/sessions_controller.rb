@@ -6,7 +6,7 @@ class SessionsController < Devise::SessionsController
 
     if @user.valid_password?(sign_in_params[:password])
       token = encode_token({ user_id: @user.id, token: 'token' })
-      cookies[:token] = { value: token, httponly: true, same_site: :none }
+      cookies[:token] = { value: token, httponly: true, same_site: :none, secure: Rails.env.production? }
       render 'sessions/logged?.json.jbuilder'
     else
       render json: { message: 'Wrong email or password' }
