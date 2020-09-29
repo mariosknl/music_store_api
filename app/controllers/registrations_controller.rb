@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  respond_to :json
   def create
     profile = Admin.create(admin_params) if params[:admin]
     profile = Guest.create(guest_params) if params[:guest]
