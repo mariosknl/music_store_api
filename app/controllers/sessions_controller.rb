@@ -1,4 +1,5 @@
 class SessionsController < Devise::SessionsController
+  respond_to :json
   before_action :configure_devise_params, if: :devise_controller?
   def create
     @user = User.where(profile: Admin.where(username: params[:admin][:username]))[0] if params[:admin]
@@ -31,6 +32,14 @@ class SessionsController < Devise::SessionsController
 
   def guest_params
     params.require(:guest).permit(:username, :password)
+  end
+
+  def respond_with(resource, _opts = {})
+    render json: resource
+  end
+
+  def respond_to_on_destroy
+    head :ok
   end
 
   protected
