@@ -1,6 +1,7 @@
 module Api
   module V1
     class LikesController < ApplicationController
+      include ActionController::Cookies
       before_action :find_instrument
 
       def create
@@ -11,7 +12,7 @@ module Api
       private
 
       def find_instrument
-        @instrument = Instrument.find(params[:instrument_id])
+        @instrument = Instrument.find(params[:id])
       end
     end
   end
