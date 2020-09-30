@@ -27,8 +27,8 @@ class ApplicationController < ActionController::API
     JWT.encode(payload, ENV['SECRET_KEY'])
   end
 
-  def decode_token(token:)
-    JWT.decode(token, ENV['SECRET_KEY'])
+  def info_current_user
+    token = JWT.decode(cookies[:token], ENV['SECRET_KEY'])
     @user = User.find(token[0]['user_id'])
   end
 end
