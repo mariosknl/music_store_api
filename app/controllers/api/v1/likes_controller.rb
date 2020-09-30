@@ -7,7 +7,7 @@ module Api
       before_action :info_current_user
 
       def create
-        new_like = Like.new(user_id: @user.id, instrument_id: params[:instrument_id])
+        new_like = Like.new(user_id: @user.id, instrument_id: @instrument.id)
         render 'likes/create.json.jbuilder' if new_like.save
       end
 
