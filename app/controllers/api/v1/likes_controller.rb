@@ -1,13 +1,14 @@
 module Api
   module V1
     class LikesController < ApplicationController
+      respond_to :json
       include ActionController::Cookies
       before_action :find_instrument
       before_action :info_current_user
 
       def create
-        @instrument.likes.create(user_id: user.id)
-        render json 'likes/create.json.jbuilder'
+        new_like = Like.new(user_id: @user.id, instrument_id: params[:instrument_id])
+        render 'likes/create.json.jbuilder' if new_like.save
       end
 
       private

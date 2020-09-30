@@ -1,2 +1,2 @@
-json.instrument @instrument.name
-json.user @user.username
+json.id @instrument.instrumentable_id
+json.user @user.id

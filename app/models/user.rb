@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :jwt_authenticatable, jwt_revocation_strategy: JwtDenyList
 
   belongs_to :profile, polymorphic: true
+  has_many :likes
 end
