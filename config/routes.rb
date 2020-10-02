@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       patch 'instruments/update'
       delete 'instruments/destroy'
       resources :instruments do
-        resources :likes
+        resources :likes, only: [:create]
       end
     end
   end
