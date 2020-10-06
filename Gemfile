@@ -23,7 +23,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'devise-jwt'
 gem 'figaro'
-gem 'jsonapi-rails'
 gem 'rubocop', '~>0.81.0'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
