@@ -32,6 +32,9 @@ gem 'rack-cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_cleaner-active_record'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 end
