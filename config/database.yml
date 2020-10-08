@@ -5,21 +5,44 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: music_store_api_development
+  pool: 5
+  username: marioskanellopoulos
+  password: ENV['SECRET_KEY']
+  template: template1
+  host: localhost
+  timeout: 5000
+  port: 5432
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: music_store_api_test
+  pool: 5
+  password: ENV['SECRET_KEY']
+  template: template1
+  host: localhost
+  timeout: 5000
+  port: 5432
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: music_store_api_production
+  pool: 5
+  password: ENV['SECRET_KEY']
+  template: template1
+  host: localhost
+  timeout: 5000
+  port: 5432

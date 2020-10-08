@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_09_29_142749) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.datetime "created_at", precision: 6, null: false
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_09_29_142749) do
 
   create_table "instruments", force: :cascade do |t|
     t.string "instrumentable_type"
-    t.integer "instrumentable_id"
+    t.bigint "instrumentable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["instrumentable_type", "instrumentable_id"], name: "index_instruments_on_instrumentable_type_and_instrumentable_id"
@@ -70,8 +73,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_142749) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "instrument_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "instrument_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["instrument_id"], name: "index_likes_on_instrument_id"
