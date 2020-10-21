@@ -13,7 +13,7 @@ In this project, I created a Rails API which is used as a back-end for my eMusic
 - Postgresql (Heroku database)
 
 # Front-End App
-[GitHub Repo](https://github.com/mariosknl/music_store_front-end/tree/feature_v3)
+[GitHub Repo](https://github.com/mariosknl/music_store_front-end)
 
 # Live Version
 [Live Link](https://emusicstorebymarios.netlify.app/)
